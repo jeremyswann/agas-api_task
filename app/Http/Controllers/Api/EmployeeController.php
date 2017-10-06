@@ -26,7 +26,7 @@ class EmployeeController
         //
         $employeeModel = new Employee();
         /** @var Employee $employee */
-        $employee = $employeeModel->findOrFail(1);
+        $employee = $employeeModel->all();
         $tasks = $employee->tasks;
 
 //        $taskList = Task::find(1);

@@ -9,7 +9,6 @@ class Employee extends Model
     protected $with = [
         'department',
         'employeeTasks',
-        //'departmentTasks'
     ];
     /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphMany
@@ -19,14 +18,8 @@ class Employee extends Model
         return $this->morphMany('App\Models\Task', 'taskable');
     }
 
-    public function departmentTasks()
-    {
-        //dd($this->department);
-        return $this->department;
-    }
-
     public function department()
     {
-        return $this->belongsTo('App\Models\Employee\Department', '');
+        return $this->belongsTo('App\Models\Employee\Department');
     }
 }
