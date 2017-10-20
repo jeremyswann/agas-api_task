@@ -9,6 +9,7 @@ class Employee extends Model
     protected $with = [
         'department',
         'employeeTasks',
+        'employeeClients',
     ];
     /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphMany
@@ -16,6 +17,14 @@ class Employee extends Model
     public function employeeTasks()
     {
         return $this->morphMany('App\Models\Task', 'taskable');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
+    public function employeeClients()
+    {
+        return $this->morphMany('App\Models\Client', 'clientable');
     }
 
     public function department()

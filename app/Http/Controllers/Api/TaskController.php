@@ -28,7 +28,7 @@ class TaskController
     public function index(Request $request): LengthAwarePaginator
     {
 
-        return $this->taskModel->paginate($request->get('pageSize', config('api.paginate')));
+        return $this->taskModel->paginate($perPage = 5, $request->get('pageSize', config('api.paginate')));
     }
 
     /**

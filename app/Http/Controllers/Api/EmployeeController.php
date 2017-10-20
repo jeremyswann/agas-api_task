@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Models\Employee;
 use App\Models\Task;
 use Illuminate\Http\Request;
+use Dingo\Api\Routing\Helpers;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class EmployeeController
 {
@@ -21,19 +23,9 @@ class EmployeeController
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request): LengthAwarePaginator
     {
-        //
-        $employeeModel = new Employee();
-        /** @var Employee $employee */
-        $employee = $employeeModel->all();
-        $tasks = $employee->tasks;
-
-//        $taskList = Task::find(1);
-//
-//        dd($taskList);
-
-        return ['tasks' => $tasks, 'employee' => $employee];
+        return $this->employeeModel->paginate($perPage = 5, $request->get('pageSize', config('api.paginate')));
     }
 
     /**
@@ -76,6 +68,15 @@ class EmployeeController
     public function taskList(int $id)
     {
         return $this->employeeModel->findOrFail($id)->tasks;
+    }
+
+    /**
+     * @param int $id
+     * @return mixed
+     */
+    public function clientList(int $id)
+    {
+        return $this->employeeModel->findOrFail($id)->clients;
     }
 
     /**

@@ -25,5 +25,7 @@ $api->version('v1', ['namespace' => 'App\Http\Controllers\Api'], function ($api)
     $api->get('employee', 'EmployeeController@index');
     $api->get('employee/{id}', 'EmployeeController@show');
     $api->get('employee/{id}/tasks', 'EmployeeController@taskList');
+    $api->get('client', 'ClientController@index');
+    $api->get('client/{id}', 'ClientController@show');
 
 });

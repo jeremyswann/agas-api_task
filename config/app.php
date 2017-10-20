@@ -169,6 +169,7 @@ return [
          */
         Dingo\Api\Provider\LaravelServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
+        Orangehill\Iseed\IseedServiceProvider::class,
 
         /*
          * Application Service Providers...
