@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             TasksTableSeeder::class,
             EmployeeDepartmentsTableSeeder::class,
             MessagesTableSeeder::class,
+            MeetingTableSeeder::class,
         ]);
     }
 }

@@ -38,6 +38,13 @@ $api->version('v1', ['namespace' => 'App\Http\Controllers\Api'], function ($api)
     $api->put('message/{id}', 'MessageController@update');
     $api->delete('message/{id}', 'MessageController@destroy');
 
+    // Message CRUD
+    $api->get('meeting', 'MeetingController@index');
+    $api->post('meeting', 'MeetingController@store');
+    $api->get('meeting/{id}', 'MeetingController@show');
+    $api->put('meeting/{id}', 'MeetingController@update');
+    $api->delete('meeting/{id}', 'MeetingController@destroy');
+
     // Employee CRUD
     $api->get('employee', 'EmployeeController@index');
     $api->post('employee', 'EmployeeController@store');
@@ -49,5 +56,6 @@ $api->version('v1', ['namespace' => 'App\Http\Controllers\Api'], function ($api)
     $api->get('employee/{id}/tasks', 'EmployeeController@taskList');
     $api->get('employee/{id}/clients', 'EmployeeController@clientList');
     $api->get('employee/{id}/messages', 'EmployeeController@messageList');
+    $api->get('employee/{id}/meetings', 'EmployeeController@meetingList');
 
 });

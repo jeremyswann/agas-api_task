@@ -87,6 +87,15 @@ class EmployeeController
     }
 
     /**
+     * @param int $id
+     * @return mixed
+     */
+    public function meetingList(int $id)
+    {
+        return $this->employeeModel->findOrFail($id)->meetings;
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  Employee $employee
