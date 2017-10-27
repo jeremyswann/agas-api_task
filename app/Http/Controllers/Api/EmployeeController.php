@@ -3,9 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Employee;
-use App\Models\Task;
 use Illuminate\Http\Request;
-use Dingo\Api\Routing\Helpers;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class EmployeeController
@@ -77,6 +75,15 @@ class EmployeeController
     public function clientList(int $id)
     {
         return $this->employeeModel->findOrFail($id)->clients;
+    }
+
+    /**
+     * @param int $id
+     * @return mixed
+     */
+    public function messageList(int $id)
+    {
+        return $this->employeeModel->findOrFail($id)->messages;
     }
 
     /**

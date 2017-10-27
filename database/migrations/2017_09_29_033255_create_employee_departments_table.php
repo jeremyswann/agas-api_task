@@ -15,10 +15,10 @@ class CreateEmployeeDepartmentsTable extends Migration
     {
         Schema::create('employee_departments', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('tasks');
+            $table->string('tasks')->default()->nullable();
             $table->string('name');
-            $table->integer('tasktable_id');
-            $table->string('tasktable_type');
+            $table->integer('taskable_id')->default()->nullable();
+            $table->string('taskable_type')->default()->nullable();
             $table->timestamps();
         });
     }

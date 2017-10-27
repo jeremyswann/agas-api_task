@@ -18,8 +18,8 @@ class CreateTasksTable extends Migration
             $table->string('name');
             $table->boolean('completed');
             $table->string('due_at');
-            $table->integer('tasktable_id');
-            $table->string('tasktable_type');
+            $table->integer('taskable_id');
+            $table->string('taskable_type');
             $table->softDeletes();
             $table->timestamps();
         });

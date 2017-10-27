@@ -10,6 +10,7 @@ class Employee extends Model
         'department',
         'employeeTasks',
         'employeeClients',
+        'employeeMessages',
     ];
     /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphMany
@@ -25,6 +26,14 @@ class Employee extends Model
     public function employeeClients()
     {
         return $this->morphMany('App\Models\Client', 'clientable');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
+    public function employeeMessages()
+    {
+        return $this->morphMany('App\Models\Message', 'messageable');
     }
 
     public function department()
